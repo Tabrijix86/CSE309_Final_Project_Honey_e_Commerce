@@ -31,11 +31,11 @@
                 <li class="nav-item ">
                     <a class="nav-link " href="adminorder.html">ORDERS</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="adminuser.php">USERS</a>
-                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">MESSAGES</a>
+                    <a class="nav-link" href="#">USERS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminmessage.html">MESSAGES</a>
                 </li>
 
             </ul>
@@ -56,49 +56,71 @@
     <h6 style="text-align: center;"><i>"Sweetness Unveiled: Pure and Golden  Your One-Stop Honey Shop for Nature's Nectar Delights!"</i></h6>
 
 
-    <div class="container" style="margin-top: 100px;">
-        <br>
-        <h1 style="text-align: center;">UNREAD MESSAGE</h1><br>
-        <div class="row" style="height: 380px; margin-top:30px;">
-            <div class="col-sm-3 " style="background-color: aliceblue; margin-left:60px; border:2px solid #F1C40F; border-radius:15px;">
-                <div class="container p-2 text-center">
-                    <div><br>
-                        <p>User ID: U98765</p>
-                        <p>Name: Jane Smith</p>
-                        <p>Email: jane.smith@example.com</p>
-                        <p>User Type: user</p>
-                        <p> Thank you for choosing our product! Your satisfaction is our priority. Enjoy your purchase!</p>
-                        <button class="btn btn-outline-danger mt-2" onclick="deleteUser()">Delete</button>
-                    </div><br>
-                </div>
-            </div>
-            <div class="col-sm-3 " style="background-color: aliceblue; margin-left:90px; border:2px solid #F1C40F; border-radius:15px;">
-                <div class="container p-2 text-center">
-                    <div><br>
-                        <p>User ID: U54321</p>
-                        <p>Name: Michael Johnson</p>
-                        <p>Email: michael.j@example.com</p>
-                        <p>User Type: user</p>
-                        <p>Welcome to the family of happy customers! Your new product is on its way. Happy unboxing!</p>
-                        <button class="btn btn-outline-danger mt-2" onclick="deleteUser()">Delete</button>
-                    </div><br>
-                </div>
-            </div>
-            <div class="col-sm-3 " style="background-color: aliceblue; margin-left:90px; border:2px solid #F1C40F; border-radius:15px;">
-                <div class="container p-2 text-center">
-                    <div><br>
-                        <p>User ID: U12345</p>
-                        <p>Name: John Doe</p>
-                        <p>Email: john.doe@example.com</p>
-                        <p>User Type: user</p>
-                        <p> We appreciate your purchase! Feel free to reach out if you have any questions or need assistance. Happy shopping!</p>
-                        <button class="btn btn-outline-danger mt-2" onclick="deleteUser()">Delete</button>
-                    </div><br>
-                </div>
-            </div>
-        </div><br>
-        <br>
-    </div><br>
+    <div class="container " style="margin-top: 100px; ">
+        <br> <h1 style="text-align: center;">TOTAL USER ACCOUNT</h1><br>
+        <?php
+// Database configuration
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "cse309";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$query = "SELECT id, name, email FROM registration";
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+    $productCount = 0;
+
+// Inside the while loop
+while ($row = $result->fetch_assoc()) {
+    if ($productCount % 3 == 0) {
+        echo '<div class="row">';
+    }
+
+    // Correct path separator and simplify path construction
+
+    echo '<div class="col-md-4">';
+    echo '<div class="container p-2" style="height: 250px; background-color: white; border: 10px double #F1C40F; border-radius: 10px; text-align: center;">';
+
+        
+        echo '<div class="ml-2 mt-2">';
+        echo '<h4 name="id" class="mt-2">' . $row['id'] . '</h4>';
+        echo '<h4 name="name" class="mt-2">' . $row['name'] . '</h4>';
+        echo '<h4 name="email" class="mt-2">' . $row['email'] . '</h4>';
+        echo '<h4 class="mt-2">'. "User Type: User" . '</h4>';
+        echo '<button class="btn btn-outline-danger ml-2" onclick="deleteProduct(' . $row['id'] . ')">Delete</button>';
+        echo '</div>';
+        echo '</div>';
+     echo '</div>';
+
+    if ($productCount % 3 == 2 || $productCount == $result->num_rows - 1) {
+        echo '</div>';
+    }
+
+    $productCount++;
+}}
+else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+
+
+            <br>
+    </div>
+
+
+
+<br>
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // Insert data into the database
 
-        $insertQuery = "INSERT INTO registration (name, email, password) VALUES ('$name', '$email', '$Password')";
+        $insertQuery = "INSERT INTO registration (name, email, password) VALUES ('$name', '$email', '$password')";
 
         if ($conn->query($insertQuery) === TRUE) {
             echo "<script>alert('Registration successful!'); window.location.href = 'login.html';</script>";
