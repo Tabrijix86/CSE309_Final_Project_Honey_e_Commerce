@@ -6,8 +6,9 @@
 }
 
 body {
-    background: url('backadmin.jpg') no-repeat center center fixed;
+    background: url('assets/fresh-honeycombs.jpg') no-repeat center center fixed;
     background-size: cover;
+    
 }
 
 header {
