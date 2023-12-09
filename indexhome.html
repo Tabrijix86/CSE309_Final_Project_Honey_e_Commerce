@@ -36,9 +36,7 @@
             width: 400px;
         }
 
-        .wider-input {
-            width: 200px;
-        }
+
 
         .container-carousel {
             position: absolute;
@@ -61,9 +59,6 @@
             top: 0;
         }
 
-        .third {
-            margin-top: 30px;
-        }
 
         .popular-products-heading {
             font-size: 24px;
@@ -79,9 +74,7 @@
             background-color: burlywood;
         }
 
-        .fourth .carousel-item {
-            background-color: coral;
-        }
+
 
         .text-yellow {
             color: yellow;
@@ -92,18 +85,8 @@
             color: black;
         }
 
-        .fourth .container-carousel {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding-bottom: 30px;
-        }
 
-        .second {
-            margin-top: 20px;
-        }
+
 
         .media {
             margin-top: 20px;
@@ -163,12 +146,63 @@
             width: 250px;
             height: 250px;
         }
+
+        .bounce-on-hover {
+            transition: transform 0.3s linear;
+        }
+
+        .bounce-on-hover:hover {
+            transform: translateY(-30px);
+        }
+
+        .btn-yellow {
+            background-color: yellow;
+            color: black;
+            /* Adjust text color on normal state as needed */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-yellow:hover {
+            background-color: coral;
+            color: white;
+            /* Adjust text color on hover state as needed */
+        }
+
+        .story img {
+            transition: transform 0.3s ease;
+        }
+
+        .story:hover img {
+            transform: scale(1.1);
+            /* You can adjust the scale factor as needed */
+        }
+
+        .scaled-image {
+            transition: transform 0.3s ease;
+        }
+
+        .scaled-image:hover {
+            transform: scale(1.1);
+            /* You can adjust the scale factor as needed */
+        }
+
+        .fourth .btn-primary:hover {
+            background-color: goldenrod;
+            /* Optionally, you can adjust other styles like text color */
+            color: white;
+        }
+
+        .third:hover .row {
+            transform: translateY(-40px);
+            /* You can adjust the jump distance as needed */
+            transition: transform 0.8s ease;
+        }
     </style>
 
     <title>Carousel</title>
 </head>
 
-<body>
+<body style="background-color:cornsilk ;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand ml-4" href="#"><img src="logo.png" alt="Image" height="80"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -210,26 +244,26 @@
         </div>
     </nav>
     <!------First Container----->
-    <section class="first text-center"
-        style="background-image: url('image/honey1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <section class="first text-center">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="0"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
 
             <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url(image/honey5.jpg);">
+                <div class="carousel-item active" style="background-image: url(image/honey4.jpg);">
                     <div class="container-carousel">
                         <div class="row justify-content-center align-items-center">
-                            <div class="col-md-8">
+                            <div class="col-mb-10">
                                 <p>Taste the quality</p>
                                 <h2>Organics Premium Honey</h2>
                                 <p>Enjoy sweet, aromatic honey made by hardworking people of ecologically clean raw
                                     materials in the most pure environment
                                 </p>
-                                <a href="#" class="btn btn-lg btn-primary">SHOP NOW</a>
+                                <a href="#" class="btn btn-lg btn-primary mb-3">SHOP NOW</a>
+
                             </div>
                         </div>
                     </div>
@@ -238,29 +272,32 @@
                 <div class="carousel-item" style="background-image: url(image/honey6.jpg); ">
                     <div class="container-carousel">
                         <div class="row justify-content-center align-items-center">
-                            <div class="col-md-8">
+                            <div class="col-mb-10">
                                 <p>Taste the quality</p>
                                 <h2>Organics Premium Honey</h2>
                                 <p>We can provide the best honey you'll ever find</p>
-                                <a href="#" class="btn btn-lg btn-primary">SHOP NOW</a>
+                                <a href="#" class="btn btn-lg btn-primary mb-3">SHOP NOW</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="carousel-item" style="background-image: url(image/honey4.jpg);">
+                <div class="carousel-item" style="background-image: url(image/honey5.jpg);">
                     <div class="container-carousel">
                         <div class="row justify-content-center align-items-center">
-                            <div class="col-md-8">
+                            <div class="col-mb-10">
                                 <p>Taste the quality</p>
                                 <h2>Organics Premium Honey</h2>
                                 <p>To provide the best quality honey, we are second to none</p>
-                                <a href="#" class="btn btn-lg btn-primary">SHOP NOW</a>
+                                <a href="#" class="btn btn-lg btn-primary mb-3">SHOP NOW</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
                 <span class="sr-only">previous</span>
@@ -275,38 +312,53 @@
     </section>
 
     <!------Second Container----->
-    <section class="second">
+    <section class="second" style="background-color: #fff;">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="media">
-                        <img src="image/freeshipping.png" class="rounded border border-yellow" alt="freeshipping">
-                        <div class="media-body">
-                            <h5 class="mt-0">Freeshipping</h5>
-                            <p>"Enjoy the convenience of stress-free shopping with our free shipping services, ensuring
-                                your favorite products are delivered to your doorstep without any additional cost.
-                            </p>
+                <div class="col-md-4" style="padding-top: 20px;">
+                    <div class="media p-2 bounce-on-hover">
+                        <div class="media p-2">
+                            <img src="image/freeshipping.png"
+                                style="border: 1px solid rgb(200, 149, 95); border-radius: 60%; background-color: rgb(200, 149, 95);"
+                                alt="image of freeshipping" class="p-1">
+                            <div class="media-body">
+                                <h5 class="mt-0">Freeshipping</h5>
+                                <p>"Enjoy the convenience of stress-free shopping with our free shipping services,
+                                    ensuring
+                                    your favorite products are delivered to your doorstep without any additional cost.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="media">
-                        <img src="image/refund.png" class="rounded border border-yellow" alt="refund">
-                        <div class="media-body">
-                            <h5 class="mt-0">Money Back Guarantee</h5>
-                            <p>Shop confidently with our money-back guarantee, providing you peace of mind and assurance
-                                that if you're not completely satisfied, your investment is protected, and you can
-                                receive a refund..</p>
+                <div class="col-md-4" style="padding-top: 20px;">
+                    <div class="media p-2 bounce-on-hover">
+                        <div class="media p-2">
+                            <img src="image/refund.png"
+                                style="border: 1px solid rgb(200, 149, 95); border-radius: 60%;background-color: rgb(200, 149, 95);"
+                                alt="image of money back guarantee" class="p-1">
+                            <div class="media-body">
+                                <h5 class="mt-0">Money Back Guarantee</h5>
+                                <p>Shop confidently with our money-back guarantee, providing you peace of mind and
+                                    assurance
+                                    that if you're not completely satisfied, your investment is protected, and you can
+                                    receive a refund..</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="media">
-                        <img src="image/onlinesupport.png" class="rounded border border-yellow" alt="os">
-                        <div class="media-body">
-                            <h5 class="mt-0">Online support</h5>
-                            <p>Experience uninterrupted convenience with our 24/7 online support, ensuring that expert
-                                assistance and guidance are just a click away whenever you need it.</p>
+                <div class="col-md-4" style="padding-top: 20px;">
+                    <div class="media p-2 bounce-on-hover">
+                        <div class="media p-2">
+                            <img src="image/onlinesupport.png"
+                                style="border: 1px solid rgb(200, 149, 95); border-radius:60%; background-color: rgb(200, 149, 95);"
+                                alt="image of online support" class="p-1">
+                            <div class="media-body">
+                                <h5 class="mt-0">Online support</h5>
+                                <p>Experience uninterrupted convenience with our 24/7 online support, ensuring that
+                                    expert
+                                    assistance and guidance are just a click away whenever you need it.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -319,30 +371,32 @@
 
 
     <!------Third Container----->
-    <section class="third" style="margin-top: 25px; margin-bottom: 25px;">
-        <div class="container">
+    <section class="third" style=" background-color: white">
+        <div class=" container" style="padding-top: 30px;">
             <div class="row">
                 <div class="col-md-12 text-center" style="margin-bottom: 20px;">
-                    <h3 class="mt-0 text-red display-4" style="color: red;">Our Story</h3>
+                    <h3 class="mt-0 text-red display-4" style="color: rgb(142, 71, 71);">Our Story</h3>
+                    <hr style="border:1px solid rgb(199, 156, 96);">
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="story">
-                        <div class="media-body">
+                        <div class="media-body mt-4">
                             <h2 class="text-black">Production of Natural Honey since 1990</h2>
                             <p class="text-black">Welcome to our honey haven, where we take pride in offering the purest
                                 and most delicious honey harvested from the heart of nature. With a commitment to
                                 quality, our honey selling company brings you a diverse range of premium,
                                 natural honey products, each filled with the goodness of wholesome sweetness and health.
                             </p>
-                            <a href="#" class="btn btn-lg btn-yellow">SHOP NOW</a>
+                            <a href="#" class="btn btn-lg btn-yellow" style="margin-bottom:30px ;">SHOP NOW</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="story">
-                        <img src="image/story2.jpg" class="rounded" alt="honneypicture">
+                    <div class="story" style="margin-bottom: 30px;">
+                        <img src="image/story2.jpg" class="rounded" style="width:99.5%;" alt="honneypicture">
                     </div>
                 </div>
             </div>
@@ -354,7 +408,7 @@
 
     <!--"fourth" section -->
     <section class="fourth">
-        <div id="myCarouselFourth" class="carousel slide" data-ride="carousel">
+        <div id="myCarouselFourth" class="carousel slide" data-ride="carousel" data-interval="2000">
             <ol class="carousel-indicators">
                 <li data-target="#myCarouselFourth" data-slide-to="0"></li>
                 <li data-target="#myCarouselFourth" data-slide-to="1"></li>
@@ -362,48 +416,60 @@
             </ol>
             <div class="carousel-inner">
 
-                <div class="carousel-item active">
+                <div class="carousel-item active" style="background-color:cornsilk;">
                     <div class="container-carousel">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2>What Our Customers Say</h2>
-                                <img src="image/customer1.jpg" class="rounded" alt="freeshipping"
-                                    style="width: 300px; height: 300px;">
-                                <p>As a satisfied customer, I can confidently attest to the exceptional quality, prompt
+                                <p style="margin-bottom: 30px; color: rgb(142, 71, 71); font-size: 45px;">What Our
+                                    Customers Say
+                                </p>
+                                <hr style="border:1px solid rgb(199, 156, 96); margin-left: 14%; margin-right: 14%;">
+
+                                <img src="image/customer1.jpg" alt="freeshipping" class="scaled-image" style="border: 1px solid rgb(200, 149, 95); border-radius: 60%; background-color: rgb(200, 149, 95);
+    height: 250px; width: 250px; margin-bottom: 15px;">
+                                <p style="color: black;">As a satisfied customer, I can confidently attest to the
+                                    exceptional quality, prompt
                                     service, and delightful experience provided by this company."</p>
-                                <a href="#" class="btn btn-lg btn-primary">SHOP NOW</a>
+                                <a href="#" class="btn btn-lg btn-primary mb-3">SHOP NOW</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="carousel-item">
+                <div class="carousel-item" style="background-color:cornsilk;">
                     <div class="container-carousel">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2>What Our Customers Say</h2>
-
-                                <img src="image/customer2.jpeg" class="rounded" alt="freeshipping"
-                                    style="width: 300px; height: 300px;">
-                                <p>As someone who has experienced the outstanding products and customer service
-                                    firsthand, being a satisfied customer is a testament to the company's unwavering
-                                    commitment to excellence</p>
-                                <a href="#" class="btn btn-lg btn-primary">SHOP NOW</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="container-carousel">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2>What Our Customers Say</h2>
-                                <img src="image/customer3.jpg" class="rounded" alt="freeshipping"
-                                    style="width: 300px; height: 300px;">
-                                <p>The high-quality products, efficient service, and dedication to customer satisfaction
+                                <p style="margin-bottom: 30px; color: rgb(142, 71, 71); font-size: 45px;">What Our
+                                    Customers Say
+                                </p>
+                                <hr style="border:1px solid rgb(199, 156, 96); margin-left: 14%; margin-right: 14%;">
+                                <img src="image/customer2.jpeg" alt="freeshipping" class="scaled-image" style="border: 1px solid rgb(200, 149, 95); border-radius: 60%; 
+                                background-color: rgb(200, 149, 95);height:250px;width:250px; margin-bottom: 15px;">
+                                <p style="color: black;">The high-quality products, efficient service, and dedication to
+                                    customer satisfaction
                                     make them my go-to choice for all things honey</p>
-                                <a href="#" class="btn btn-lg btn-primary">SHOP NOW</a>
+                                <a href="#" class="btn btn-lg btn-primary mb-3">SHOP NOW</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="background-color:cornsilk">
+                    <div class="container-carousel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p style="margin-bottom: 30px; color: rgb(142, 71, 71); font-size: 45px;">What Our
+                                    Customers Say
+                                </p>
+                                <hr style="border:1px solid rgb(199, 156, 96); margin-left: 14%; margin-right: 14%;">
+                                <img src="image/customer3.jpg" alt="freeshipping" class="scaled-image" style="border: 1px solid rgb(200, 149, 95); border-radius: 60%; 
+                                background-color: rgb(200, 149, 95);height:250px;width:250px; margin-bottom: 15px;">
+                                <p style="color: black;">The high-quality products, efficient service, and dedication to
+                                    customer satisfaction
+                                    make them my go-to choice for all things honey</p>
+                                <a href="#" class="btn btn-lg btn-primary mb-3">SHOP NOW</a>
                             </div>
                         </div>
                     </div>
@@ -425,26 +491,26 @@
 
 
     <!-- Fifth Container -->
-    <section class="fifth">
+    <section class="fifth" style="background-color: aliceblue;">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-9" style="margin-top: 30px;">
                     <div class="bloom">
                         <div class="media-bodies">
-                            <h3 class="mt-0">Organic Honey, Be healthy</h3>
+                            <h3 class="mt-5">Organic Honey, Be healthy</h3>
                             <h4>Buy new and save 50% off</h4>
                             <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard
                                 it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside
                                 of me. Heaven is jealous of our love, angels are
                                 crying from up above. Yeah, you take me to utopia.</p>
-                            <a href="#" class="btn btn-lg btn-primary">DISCOVER NEW</a>
+                            <a href="#" class="btn btn-lg btn-primary" style="margin-bottom: 20px;">DISCOVER NEW</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="bloom" style="margin-top: 10px;">
-                        <img src="image/story3.jpg" class="rounded img-small" alt="freeshipping"
-                            style="width: 300px; height: 300px;">
+                    <div class="bloom mt-5" style="margin-top: 10px;">
+                        <img src="image/story3.jpg" class="rounded img-small scaled-image" alt="freeshipping"
+                            style="width: 300px; height: 300px; margin-bottom: 20px;">
                     </div>
                 </div>
             </div>
@@ -453,12 +519,15 @@
 
 
     <!-- Popular brand section -->
-    <section class="sixth">
-        <h2 class="popular-products-heading">Popular Products</h2>
+    <section class="sixth" style="background-color: white;">
+        <h1 class="popular-products-heading"
+            style="color:chocolate; font-size: 35px; margin-left: 35px; margin-bottom:25px ;padding-top: 30px;text-align:center ;">
+            Popular
+            Products</h1>
         <div class="card-deck justify-content-center">
             <div class="card d-flex align-items-center">
-                <img src="image/purehoney.jpg" class="card-img-top img-fluid" alt="pure honey"
-                    style="width: 300px; height: 300px;">
+                <img src="image/purehoney.jpg" class="card-img-top img-fluid scaled-image" alt="pure honey"
+                    style="width: 300px; height: 300px;margin-top: 20px;">
                 <div class="card-body">
                     <h5 class="card-title">$200</h5>
                     <p class="card-text">Pure Honey</p>
@@ -466,8 +535,8 @@
             </div>
 
             <div class="card d-flex align-items-center">
-                <img src="image/rawhoney.jpg" class="card-img-top img-fluid" alt="rawhoney"
-                    style="width: 300px; height: 300px;">
+                <img src="image/rawhoney.jpg" class="card-img-top img-fluid scaled-image" alt="rawhoney"
+                    style="width: 300px; height: 300px; margin-top: 20px;">
                 <div class="card-body">
                     <h5 class="card-title">$300</h5>
                     <p class="card-text">Raw Honey</p>
@@ -475,8 +544,8 @@
             </div>
 
             <div class="card d-flex align-items-center">
-                <img src="image/honey.jpg" class="card-img-top img-fluid" alt="honey"
-                    style="width: 300px; height: 300px;">
+                <img src="image/honey.jpg" class="card-img-top img-fluid scaled-image" alt="honey"
+                    style="width: 300px; height: 300px; margin-top: 20px;">
                 <div class="card-body">
                     <h5 class="card-title">$250</h5>
                     <p class="card-text">Sunflower Honey</p>
@@ -485,21 +554,19 @@
         </div>
     </section>
 
-
-
-
-
     <!---Join Us section-->
     <section class="seven">
-        <div class="newsletter text-center" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="newsletter text-center" style="margin-top: 20px;">
             <h3 style="color: red;">Join Our Newsletter</h3>
             <p>Get 15% off on your next purchase</p>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Email address</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Enter your email address" aria-label="email"
-                    name="email" aria-describedby="basic-addon1">
+                <input type="text" class="form-control wider-input" placeholder="Enter your email address"
+                    aria-label="email" aria-describedby="basic-addon1" name="email1" id="email1"
+                    style="height: 40px; padding: 8px; box-sizing: border-box;">
+                <a href="#" class="btn btn-sm btn-primary" style="height: 40px; padding: 8px;">Submit</a>
             </div>
         </div>
     </section>
@@ -508,19 +575,23 @@
 
 
     <!---logo section-->
-    <section class="logo text-center" style="margin-right: 10px;">
+    <section class="logo text-center" style="background-color: #fff;">
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <img src="image/beefly.jpg" class="card-img-top img-small" alt="beefly">
+                <img src="image/beefly.jpg" class="card-img-top img-small scaled-image" alt="beefly"
+                    style="margin-top: 15px; height:80%;width:60%;">
             </div>
             <div class="col-md-3">
-                <img src="image/honeybees.jpg" class="card-img-top img-small" alt="honeybees">
+                <img src="image/honeybees.jpg" class="card-img-top img-small scaled-image" alt="honeybees"
+                    style="margin-top: 15px; height:80%;width:60%;">
             </div>
             <div class="col-md-3">
-                <img src="image/pinbee.jpg" class="card-img-top img-small" alt="pinbee">
+                <img src="image/pinbee.jpg" class="card-img-top img-small scaled-image" alt="pinbee"
+                    style="margin-top: 15px; height:80%;width:60%;">
             </div>
             <div class="col-md-3">
-                <img src="image/sunbee.jpg" class="card-img-top img-small" alt="sunbee">
+                <img src="image/sunbee.jpg" class="card-img-top img-small scaled-image" alt="sunbee"
+                    style="margin-top: 15px; height:80%;width:60%;">
             </div>
         </div>
     </section>
@@ -560,12 +631,12 @@
                     <div class="footer1">
                         <h4>LOCAL</h4>
                         <hr>
-                        <p>Loss Angeles</p>
-                        <p>San Francisco</p>
-                        <p>New York City</p>
-                        <p>Delhi</p>
-                        <p>Chicago</p>
-                        <p>My Account</p>
+                        <p>Dhaka</p>
+                        <p>Chattogram</p>
+                        <p>Rajshahi</p>
+                        <p>Rangpur</p>
+                        <p>Barishal</p>
+                        <p>Khulna</p>
                     </div>
                 </div>
 
@@ -573,8 +644,9 @@
                     <div class="footer1">
                         <h4>Newsletter</h4>
                         <hr>
-                        <input type="text" class="form-control wider-input" placeholder="Enter your email address"
-                            aria-label="email" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control wider-input" style="margin-left: 30px; "
+                            placeholder="Enter your email address" aria-label="email" aria-describedby="basic-addon1"
+                            name="email2" id="email2">
                     </div>
                 </div>
             </div>
