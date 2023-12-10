@@ -12,6 +12,11 @@ body {
     
 }
 
+#checkoutForm{
+    text-decoration-color: #e65c00;
+    display: flex;
+    justify-content: center;
+}
 
 header {
     background-color: #ffc107;
