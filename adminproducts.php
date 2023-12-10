@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Admin</title>
@@ -106,22 +107,24 @@ while ($row = $result->fetch_assoc()) {
     if ($productCount % 3 == 0) {
         echo '<div class="row">';
     }
-
+   
     // Correct path separator and simplify path construction
     $imageURL = '/cse309/uploads/' . basename(str_replace("\\", "/", $row['productImage']));
     $absolutePath = $_SERVER['DOCUMENT_ROOT'] . '/cse309/uploads/' . basename(str_replace("/", "\\", $row['productImage']));
 
     echo '<div class="col-md-4">';
-    echo '<div class="container p-2" style="height: 300px; background-color: white; border: 10px double #F1C40F; border-radius: 10px; text-align: center;">';
+    echo '<div class="container p-2" style="height: 300px; background-color: white; border: 5px solid #F1C40F; border-radius: 10px; text-align: center;">';
 
     if (file_exists($absolutePath)) {
         echo '<img src="' . $imageURL . '" alt="Product Image" class="img-fluid mx-auto"  style="height: 150px;">';
         echo '<div class="ml-2">';
         echo '<h4 name="productName">' . $row['productName'] . '</h4>';
         echo '<p name="productPrice">Price: $' . number_format($row['productPrice'], 2) . '</p>';
-        echo '<button class="btn btn-outline-primary" onclick="showDetails(' . $row['id'] . ')">Details</button>';
-        echo '<button class="btn btn-outline-success ml-2" onclick="editProduct(' . $row['id'] . ')">Edit</button>';
-        echo '<button class="btn btn-outline-danger ml-2" onclick="deleteProduct(' . $row['id'] . ')">Delete</button>';
+        
+        echo '<form id="deleteForm' . $row['id'] . '" method="post" action="deleteproduct.php">';
+    echo '  <input type="hidden" name="productId" value="' . $row['id'] . '">';
+    echo '  <button type="button" class="btn btn-outline-danger ml-2" onclick="submitDeleteForm(' . $row['id'] . ')">Delete</button>';
+    echo '</form>';
         echo '</div>';
     } else {
         echo '<p>Image not found: ' . $absolutePath . '</p>';
@@ -146,8 +149,13 @@ $conn->close();
 
             <br>
     </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
     <script>
+        function submitDeleteForm(productId) {
+        // Submit the corresponding form for the product with the given productId
+        document.getElementById('deleteForm' + productId).submit();
+    }
         function showDetails(productId) {
             // Implement the logic to show details for the product with the given productId
             alert('Showing details for product with ID ' + productId);
@@ -163,10 +171,12 @@ $conn->close();
             alert('Deleting product with ID ' + productId);
         }
     </script>
+    <script src="path/to/your/jquery.min.js"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct " crossorigin="anonymous "></script>
-
+    
+   
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>

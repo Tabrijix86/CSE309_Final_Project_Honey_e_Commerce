@@ -88,7 +88,7 @@ while ($row = $result->fetch_assoc()) {
     // Correct path separator and simplify path construction
 
     echo '<div class="col-md-4">';
-    echo '<div class="container p-2" style="height: 250px; background-color: white; border: 10px double #F1C40F; border-radius: 10px; text-align: center;">';
+    echo '<div class="container p-2" style="height: 250px; background-color: white; border: 5px solid #F1C40F; border-radius: 10px; text-align: center;">';
 
         
         echo '<div class="ml-2 mt-2">';

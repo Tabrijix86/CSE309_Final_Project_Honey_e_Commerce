@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         } elseif ($row['is_admin'] == 0 && $password === $row['password']) {
             // Regular user login successful, redirect to user dashboard
-            echo "<script>alert('User login successful!'); window.location.href = 'adminproducts.html';</script>";
+            echo "<script>alert('User login successful!'); window.location.href = 'indexhome.html';</script>";
             exit();
         } else {
             echo "<script>alert('Incorrect password. Please try again.');</script>";
