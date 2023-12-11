@@ -26,13 +26,13 @@
                     <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminproducts.php">PRODUCTS</a>
+                    <a class="nav-link" href="adminproducts.php">ADMIN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminorder.html">ORDERS</a>
+                    <a class="nav-link" href="products.html">SHOP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminuser.php">USERS</a>
+                    <a class="nav-link" href="cart.html">CART</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">MESSAGES</a>
@@ -58,58 +58,90 @@
 
     <div class="container-fluid product-container">
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="product-box">
-                    <img src="assets/prod1.jpg" alt="Product 1" class="img-fluid">
-                    <h3>Honey Nuts</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, hic magnam. Vitae dolor ipsa voluptatum eveniet in. Nisi ratione ad totam non repudiandae corporis magnam eaque incidunt, aspernatur maxime autem.</p>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-box">
-                    <img src="assets/prod2.jpg" alt="Product 2" class="img-fluid">
-                    <h3>Rassasi Honey</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quaerat, aspernatur voluptas impedit voluptatum ipsum! Harum, eos, doloribus sint perferendis animi iure quas illum officia aut impedit doloremque debitis quisquam.</p>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-box">
-                    <img src="assets/prod3.jpg" alt="Product 2" class="img-fluid">
-                    <h3>Rassasi Honey</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quaerat, aspernatur voluptas impedit voluptatum ipsum! Harum, eos, doloribus sint perferendis animi iure quas illum officia aut impedit doloremque debitis quisquam.</p>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-        </div>
+        <form id="cartForm">
 
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="product-box">
-                    <img src="assets/prod4.jpg" alt="Product 1" class="img-fluid">
-                    <h3>Product 1</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ipsam sit consectetur dolorem harum labore voluptate impedit facilis deserunt dolores pariatur natus optio quibusdam reiciendis libero sapiente, explicabo laudantium cum.</p>
-                    <button class="btn btn-primary">Add to Cart</button>
+            <div class="row">
+                
+                <!-- Product 1 -->
+                <div class="col-md-4">
+                    <div class="product-box">
+                        <img src="assets/dualhoney.jpg" class="img-fluid">
+                        <h3>Twin Turbo Honey</h3>
+                        <p>Have this with your milk and bread. You will not die today.</p>
+                        <h2>TK800</h2>
+                        <input type="checkbox" name="product[]" value="1" >
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-box">
-                    <img src="assets/prod5.jpg" alt="Product 2" class="img-fluid">
-                    <h3>Product 2</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nam veniam magni accusamus alias esse ex dolores dolore, unde ad veritatis voluptate, tempora vero pariatur atque provident praesentium, incidunt labore!</p>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-box">
-                    <img src="assets/prod6.jpg" alt="Product 3" class="img-fluid">
-                    <h3>Product 3</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium qui ea sapiente saepe mollitia! Quis distinctio nesciunt est illo aperiam, architecto veritatis consectetur neque ducimus odit, dolorem, doloribus explicabo sunt.</p>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-        </div>
 
-   
+                <!-- Product 3 -->
+                <div class="col-md-4">
+                    <div class="product-box">
+                        <img src="assets/khejur.jpg" class="img-fluid">
+                        <h3>Post Workout Honey</h3>
+                        <p>If you can't buy your protein powder, buy our Honey Chowder.</p>
+                        <h2>TK500</h2>
+                        <input type="checkbox" name="product[]" value="3" >
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-md-4">
+                    <div class="product-box">
+                        <img src="assets/eyeofthetiger.jpg" class="img-fluid">
+                        <h3>Eye Of the Tiger Honey</h3>
+                        <p>Need we say more? Go get it, Tiger.</p>
+                        <h2>TK2000</h2>
+                        <input type="checkbox" name="product[]" value="4">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-primary" onclick="addToCart()">Add Selected Items to Cart</button>
+                </div>
+            </div>
+
+        </form>
+
+       <!-- Add this script to your products.html page -->
+       <script>
+        function addToCart() {
+            var form = document.getElementById('cartForm');
+            var formData = new FormData(form);
+            var selectedItems = [];
+    
+            for (const entry of formData.entries()) {
+                if (entry[0] === 'product[]') {
+                    selectedItems.push(entry[1]);
+                }
+            }
+    
+            // Check if any items are selected before redirecting
+            if (selectedItems.length > 0) {
+                // Redirect to cart.html and pass selected items as a query parameter
+                window.location.href = 'cart.html?items=' + selectedItems.join(',');
+            } else {
+                // Inform the user if no items are selected (you can customize this part)
+                alert('Please select at least one item before adding to the cart.');
+            }
+        }
+    </script>
+        
+    </div>
+
+    <!-- Add Bootstrap and jQuery scripts at the end of the body for proper functioning -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0juDZL8r/OJP5c5"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-TkNq2JZFAd2QxlP4vb5VsFX9dFHX1MWtXx4ubUabI2FEx7fF1bEBK4cZqxmW+7kq"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
