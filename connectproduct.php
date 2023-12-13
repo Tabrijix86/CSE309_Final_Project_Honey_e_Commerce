@@ -28,15 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $productPrice = $_POST['productPrice'];
         $productDetails = $_POST['productDetails'];
 
-     // Ensure unique filenames to avoid conflicts
-$uniqueFilename = uniqid() . "_" . basename($_FILES["productImageFile"]["name"]);
-$targetFile = __DIR__ . "/uploads/" . $uniqueFilename;
+        // Ensure unique filenames to avoid conflicts
+        $uniqueFilename = uniqid() . "_" . basename($_FILES["productImageFile"]["name"]);
+        $targetFile = __DIR__ . "/uploads/" . $uniqueFilename;
 
-// Construct the complete URL
-$baseURL = "http://localhost/cse309/";
-$imageURL = $baseURL . str_replace(__DIR__, '', $targetFile);
+        // Construct the complete URL
+        $baseURL = "http://localhost/cse309/";
+        $imageURL = $baseURL . str_replace(__DIR__, '', $targetFile);
 
-// Now $imageURL contains the complete URL to the image
+        // Now $imageURL contains the complete URL to the image
         // Move uploaded file to the target directory
         if (move_uploaded_file($_FILES["productImageFile"]["tmp_name"], $targetFile)) {
             // File upload successful
@@ -59,4 +59,3 @@ $imageURL = $baseURL . str_replace(__DIR__, '', $targetFile);
 
 // Close the database connection
 $conn->close();
-?>
